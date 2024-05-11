@@ -1,0 +1,498 @@
+body, h1, h2, h3, p {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/* Header Styles */
+header {
+    position: relative;
+    height: 100vh;
+    overflow: hidden;
+    width: 100%;
+    background-image: linear-gradient(rgba(4, 9, 30, 0.567), rgba(4, 9, 30, 0.425)), url(CenturyTree.jpg);
+    background-position: center;
+    background-size: cover;
+    position: relative;
+}
+
+header video {
+    object-fit: cover;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -3;
+}
+
+.login-buttons {
+    position: fixed;
+    top: 50%;
+    right: 20px;
+    transform: translateY(-50%);
+}
+
+.signup-button,
+.contact-button {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    background-color: rgba(204, 67, 9, 0.8);
+    border: none;
+    cursor: pointer;
+    font-size: 24px;
+    color: #ffffff;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+    transition: background-color 0.3s;
+    position: relative;
+}
+
+.signup-button:hover,
+.contact-button:hover {
+    background-color: rgba(0, 0, 0, 0.505);
+}
+
+.button-tooltip {
+    position: absolute;
+    top: 50%;
+    left: -60px;
+    transform: translateY(-50%);
+    background-color: #333;
+    color: #fff;
+    font-size: 12px;
+    padding: 5px;
+    border-radius: 5px;
+    opacity: 0;
+    transition: opacity 0.3s;
+}
+
+.signup-button:hover .button-tooltip,
+.contact-button:hover .button-tooltip {
+    opacity: 1;
+}
+
+/* Fixed Menu Styles */
+.fixed-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: rgba(34, 30, 30, 0.816);
+    z-index: 1000;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px 8px;
+}
+
+.fixed-menu .logo {
+    width: 200px; /* Adjust size as needed */
+}
+
+.fixed-menu nav img {
+    height: 50px;
+}
+
+.fixed-menu .nav-links {
+    list-style: none;
+    display: flex;
+}
+
+.fixed-menu .nav-links li {
+    margin-right: 30px;
+    position: relative; /* Add this line */
+}
+
+.fixed-menu .nav-links li .submenu-items {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    background-color: rgba(34, 30, 30, 0.816);
+    width: max-content; /* Adjust width as needed */
+    z-index: 1001; /* Ensure submenu appears above other content */
+    padding: 10px 0;
+    display: none; /* Hide submenu by default */
+}
+
+.fixed-menu .nav-links li .submenu-items li {
+    margin: 0;
+}
+
+.fixed-menu .nav-links li .submenu-items a {
+    display: block;
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+    transition: background-color 0.3s;
+}
+
+.fixed-menu .nav-links li .submenu-items a:hover {
+    background-color: rgba(255, 69, 0, 0.6); /* Adjust hover background color */
+}
+
+.fixed-menu .nav-links li:hover .submenu-items {
+    display: block; /* Show submenu when parent is hovered */
+}
+
+.fixed-menu .nav-links a {
+    text-decoration: none;
+    color: #fff;
+    font-weight: 600;
+    font-size: 1.2rem; /* Adjusted font size */
+    transition: color 0.3s;
+    cursor: pointer;
+}
+
+.fixed-menu .nav-links a:hover {
+    color: #ff4500;
+}
+
+
+/* Vision Text Styles */
+.vision-section {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    z-index: 1;
+}
+
+.vision-text p {
+    font-size: 19px;
+    color: #fffffff0;
+}
+
+/* Explore Button Styles */
+.explore-button {
+    position: absolute;
+    top: 66px;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: #46568eeb;
+    color: #000000;
+    border: none;
+    padding: 15px 30px;
+    font-size: 18px;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease;
+    display: flex;
+    align-items: center;
+}
+
+.explore-button:hover {
+    background-color: #bfc0c791;
+}
+
+.explore-button i {
+    margin-left: 10px;
+}
+
+
+#hero {
+    text-align: center;
+    padding: 60px 0;
+    margin-top: 5px; /* Adjusted to account for fixed header */
+}
+
+.hero-content {
+    max-width: 800px;
+    margin: 0 auto;
+}
+
+h1 {
+    font-size: 2.5rem;
+    color: #29336a;
+    margin-bottom: 10px;
+}
+
+h2 {
+    font-size: 2rem;
+    color: #767c9b;
+    margin-bottom: 20px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    margin-bottom: 20px;
+    line-height: 1.6;
+}
+
+
+.hidden {
+    display: none;
+}
+
+.cta-button {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: #d72424c9;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+}
+
+.cta-button:hover {
+    background-color: #d72424c9;
+}
+
+
+
+/* Modernized Read More Button Styles */
+#read-more {
+    display: inline-block;
+    padding: 15px 30px;
+    background-color: transparent;
+    color: #d72424c9;
+    text-decoration: none;
+    border: 2px solid #d72424c9;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: color 0.3s, background-color 0.3s;
+}
+
+#read-more:hover {
+    color: #fff;
+    background-color: #d72424c9;
+}
+
+#guiding-words {
+    background-color: #f9f9f9;
+    padding: 80px 0;
+}
+
+.content-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    max-width: 1200px;
+    margin: 0 auto;
+    position: relative;
+}
+
+.line {
+    height: 100%;
+    width: 4px;
+    background-color: #d72424c9;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.text-container {
+    width: 45%;
+    position: relative;
+}
+
+h2 {
+    font-size: 2.5rem;
+    color: #29336a;
+    margin-bottom: 20px;
+}
+
+.symbol {
+    font-size: 1.5rem;
+    color: #d72424c9;
+    margin: 0 5px;
+}
+
+p {
+    font-size: 1.2rem;
+    color: #333;
+    line-height: 1.6;
+}
+
+.author {
+    margin-top: 20px;
+    font-weight: bold;
+}
+
+.image-container {
+    width: 40%;
+}
+
+.image-container img {
+    width: 100%;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+
+/* Contact Section Styles */
+#contact {
+    background-color: #fff;
+    padding: 50px 0;
+    text-align: center;
+}
+
+.contact-form h2 {
+    font-size: 2.5rem;
+    margin-bottom: 20px;
+}
+
+.contact-form input,
+.contact-form textarea {
+    padding: 15px;
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1.2rem;
+}
+
+.contact-form button {
+    background-color: #d72424c9;
+    color: #fff;
+    border: none;
+    padding: 15px 30px;
+    margin-top: 15px;
+    border-radius: 5px;
+    font-size: 1.2rem;
+    transition: background-color 0.3s;
+    cursor: pointer; /* Add cursor pointer for smooth scroll effect */
+}
+
+.contact-form button:hover {
+    background-color: #d72424c9;
+}
+
+/* ... other styles ... */
+
+.submenu ul {
+    display: none;
+    position: absolute;
+    background-color: #1a1818; /* Adjust the background color as needed */
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    z-index: 1;
+}
+
+.submenu:hover ul {
+    display: flex;
+    flex-direction: column;
+}
+
+.submenu ul li {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ccc; /* Add a border between submenu items */
+}
+
+.submenu ul li:last-child {
+    border-bottom: none; /* Remove border for the last item */
+}
+
+
+
+
+footer {
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(239, 252, 255, 0.7); /* Transparent black overlay */
+    color: #576e9c;
+    padding: 50px 0;
+    margin-top: 100px; /* Adjusted to account for fixed header */
+}
+
+
+.footer-content {
+    display: flex;
+    justify-content: space-between;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.footer-section {
+    width: 30%;
+}
+
+.footer-section h3 {
+    font-size: 1.5rem;
+    margin-bottom: 10px;
+}
+
+.social-links {
+    list-style: none;
+    padding: 0;
+}
+
+.social-links li {
+    margin-bottom: 8px;
+}
+
+.social-links a {
+    text-decoration: none;
+    color: #576e9c;
+    font-size: 1rem;
+    display: flex;
+    align-items: center;
+}
+
+.social-links i {
+    margin-right: 5px;
+}
+
+.footer-section img {
+    width: 300px; /* the size of the ministry logo as needed */
+    margin-top: 10px;
+}
+
+.bottom-footer {
+    text-align: center;
+    margin-top: 20px;
+    color: #f9f9f9;
+}
+
+.bottom-footer p {
+    font-size: 1rem;
+}
+/* ... (existing code) ... */
+
+#hero .animated-text,
+#guiding-words .animated-text,
+.footer-content .animated-text,
+.footer-content .animated-footer {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#hero .animated-button,
+.footer-content .animated-button {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+#guiding-words .animated-image {
+    opacity: 0;
+    transform: translateX(20px);
+    transition: opacity 1s ease-out, transform 1s ease-out;
+}
+
+.footer {
+    background-image: url('images/muscat_skyline.png'); /* Add the footer background image */
+    background-size: cover;
+    background-position: center;
+    background-color: rgba(0, 0, 0, 0.7); /* Adjust the transparency as needed */
+    color: #fff;
+    padding: 80px 0;
+    transition: background-color 1s ease-out;
+}
+
+.footer:hover {
+    background-color: rgba(0, 0, 0, 0.5); /* Adjust the transparency on hover as needed */
+}

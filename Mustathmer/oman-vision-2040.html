@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Mustathmer | Invest Oman</title>
+        <link rel="icon" type="image/x-icon" href="images/icon.jpg">
+        <link rel="stylesheet" href="css/styles.css">
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+        <!-- Include FontAwesome library -->
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+    <style>
+        /* Add specific styles for this page if needed */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+        header {
+        position: relative;
+        height: 70vh; /* Adjust the height as needed */
+        overflow: hidden;
+        }
+        .header-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the header */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Ensure the image is behind other header content */
+        }
+
+        .vision-text p {
+        font-size: 40px;
+        color: #fffffff0;
+        font-weight: bold;
+        }
+
+        section#vision-2040 {
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            height: 88vb;
+        }
+
+        section#vision-2040 h2 {
+            color: #2c3e50;
+        }
+
+        section#vision-2040 p {
+            color: #34495e;
+            font-size: 18px;
+            margin-bottom: 20px;
+        }
+    
+        .theme-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: center;
+            padding: 60px;
+        }
+
+        .theme-box {
+            flex: 0 1 calc(45% - 20px);
+            padding: -3px;
+            color: #ecf0f1;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .number-box,
+        .content-box,
+        .symbol-box {
+            background-color: #ffffff;
+            color: #3ca0ce;
+        }
+
+        .symbol-box {
+            font-size: 1.5em;
+            margin-bottom: 10px;
+        }
+
+        .theme-box:hover {
+            background-color: #8ec9df;
+            color: white;
+        }
+
+        #book-section,
+        #another-section {
+            flex: 0 1 calc(33.333% - 20px);
+            padding: 20px;
+            text-align: center;
+            background-color: #ecf0f1;
+            display: flex;
+            justify-content: center;
+            border-radius: 8px;
+            align-items: center;
+            height: 55vh;
+
+            /* This ensures the section takes the full height of the viewport */
+        }
+
+        .book-box {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border-radius: 8px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            transition: box-shadow 0.3s;
+            height: 55vh;
+            background-color: #ffffff;
+            margin-right: 20px; /* Adjust the margin as needed */
+        }
+
+        .book-box:hover {
+            box-shadow: 0 0 30px rgba(0, 0, 0, 0.2);
+        }
+
+        .book-image img {
+            max-width: 100%;
+            height: auto;
+            border-radius: 8px 0 0 8px;
+        }
+
+        .book-details {
+            padding: 20px;
+            text-align: left;
+        }
+
+        .book-details h2 {
+            font-size: 1.8em;
+            color: #6d9eb0;
+            margin-bottom: 10px;
+        }
+
+        .book-details p {
+            color: #34495e;
+            font-size: 1em;
+            margin-bottom: 20px;
+        }
+
+        .browse-button {
+            background-color: #58a3be;
+            color: #ffffff;
+            font-weight: bold;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-size: 1.1em;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .browse-button:hover {
+            background-color: #bed5de;
+        }
+        
+        
+        section#trade-agreements {
+            padding: 160px;
+            text-align: center;
+            background-image: url('images/invest.png'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            color: #dee2e6; /* Light gray text color */
+            border-radius: 10px;
+        }
+
+        section#trade-agreements h2,
+        section#trade-agreements p {
+            color: #ffffff; /* White text color */
+            
+        }
+
+        .accordion {
+            background-color: #ffffff;
+            color: #27778d; /* Text color */
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .accordion:before {
+            content: '\02795'; /* Unicode character for 'plus' sign */
+            font-size: 24px;
+            color: #27778d;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            transition: transform 0.4s;
+        }
+
+        .accordion.active:before {
+            content: '\02796'; /* Unicode character for 'minus' sign */
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        
+    </style>
+</head>
+
+<header>
+    <img src="images/overview.jpg" alt="Your Image" class="header-image">
+    <div class="menu">
+        <img src="images/logo1.png" alt="Your Startup Logo" class="logo">
+        <div class="vision-section">
+            <div class="vision-text">
+                <p>Oman Vision 2040</p>
+            </div>
+    </div>
+
+<div class="menu">
+    <img src="images/logo1.png" alt="Your Startup Logo" class="logo">
+</div>
+
+<!-- Fixed Menu with Logo -->
+<nav class="fixed-menu">
+    <div class="menu">
+        <img src="images/loggo.png" alt="Your Startup Logo" class="logo">
+    </div>
+    <ul class="nav-links">
+        <li><a href="index.html">Home</a></li>
+        <li class="submenu">
+            <a href="invest-oman.html">Invest Oman <span>&#9662;</span></a>
+            <ul class="submenu-items">
+                <!-- New submenu items -->
+                <li><a href="Virtual Tour.html">Explore Muscat</a></li>
+                <li><a href="Financial Analysis Tools.html">Financial Analysis Tools</a></li>
+            </ul>
+        </li>
+        
+        <li class="submenu">
+            <a href="#">About Oman <span>&#9662;</span></a>
+            <ul class="submenu-items">
+                <li><a href="oman-vision-2040.html">Oman Vision 2040</a></li>
+                <li><a href="oman-overview.html">Oman Overview</a></li>
+            </ul>
+        </li>
+        <li><a href="about-mustathmer.html">Mustathmer</a></li>
+        <li><a href="contact.html" id="contact-btn">Contact</a></li>
+    </ul>
+</nav>
+
+
+            <div class="login-buttons">
+                <button class="signup-button" onclick="window.location.href='invest-oman.html'">
+                    <i class="fas fa-user-plus"></i>
+                    <span class="button-tooltip">Sign up</span>
+                </button>
+                <button class="contact-button" onclick="window.location.href='feedback.html'">
+                    <i class="fas fa-envelope"></i>
+                    <span class="button-tooltip">feedback</span>
+                </button>
+    </header>
+
+
+    <section id="vision-2040">
+        <img src="images/2040.jpg" alt="Oman Picture" style="max-width: 100%; height: auto;">
+        <div class="content-container"></div>
+        <p style="font-weight: bold; font-size: 3em;">
+            Oman Vision <br><span style="color: #86bfd4;">2040</span>
+        </p>
+        <div>
+            <p style="font-weight: bold;">
+                Launched in January 2021 by order of His Majesty the Sultan, this progressive<br> development strategy
+                repositions our national competitiveness around six themes.
+                <span style="color: #28353a;"></span></p>
+        </div>
+    </section>
+
+    <section id="vision-2040-boxes">
+        <div class="content-container">
+            <div class="theme-boxes">
+                <div class="theme-box number-box">
+                    <div class="symbol-box">1</div>
+                    <p>Knowledge for innovation and sustainable development</p>
+                </div>
+                <div class="theme-box content-box">
+                    <div class="symbol-box">2</div>
+                    <p>A skilled and flexible workforce</p>
+                </div>
+                <div class="theme-box">
+                    <div class="symbol-box">3</div>
+                    <p>World-class infrastructure and transport services</p>
+                </div>
+                <div class="theme-box">
+                    <div class="symbol-box">4</div>
+                    <p>An education system responsive to the <br>needs of a Low Carbon Economy</p>
+                </div>
+                <div class="theme-box">
+                    <div class="symbol-box">5</div>
+                    <p>A regulatory framework led by informed and entrepreneurial-minded civil servants</p>
+                </div>
+                <div class="theme-box">
+                    <div class="symbol-box">6</div>
+                    <p>Public services that support the growth of Oman’s business community</p>
+                </div>
+            </div>
+        </div>
+        <div>
+            <p >
+
+            </p>
+        </div>
+    </section>
+
+    <section id="book-section">
+        <div class="content-container">
+            <div class="book-box">
+                <div class="book-image">
+                    <img src="images/book1.png" alt="Book Cover">
+                </div>
+                <div class="book-details">
+                    <h2>Annual Report 2021</h2>
+                    <p>Citizen Version<br>File size 7.4 MB</p>
+                    <a class="browse-button" href="https://www.oman2040.om/assets/books/report-citizen-en/index.html#p=8"
+                        target="_blank" rel="noopener noreferrer">Browse</a>
+                </div>
+            </div>
+            <div class="book-box">
+                <div class="book-image">
+                    <img src="images/book2.png" alt="Book Cover">
+                </div>
+                <div class="book-details">
+                    <h2>Vision Document</h2>
+                    <p>Vision Document<br>File size 11.2 MB</p>
+                    <a class="browse-button" href="https://www.oman2040.om/assets/books/oman2040-en/index.html#p=1"
+                        target="_blank" rel="noopener noreferrer">Browse</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    
+    <footer style="background-image: url('images/muscat_skyline.png');">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>
+                    <i class="far fa-envelope"></i> Email: helpdesk@mustathmer.com<br>
+                    <i class="fas fa-phone"></i> Phone: 2489 2230
+                </p>
+                <div class="social-icons">
+                    <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <a href="https://tejarah.gov.om/" target="_blank">
+                    <img src="images/tejarah1.png" alt="Ministry of Commerce and Industry">
+                </a>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <p>&copy; 2024 Mustathmer</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeColor(element) {
+            // Toggle background color and text color on click
+            element.style.backgroundColor = element.style.backgroundColor === 'white' ? '#3498db' : 'white';
+            element.style.color = element.style.color === 'white' ? '#3498db' : 'white';
+        }
+
+        document.querySelector('.browse-button').addEventListener('click', function () {
+            // Change color on click
+            this.style.backgroundColor = this.style.backgroundColor === '#3498db' ? '#2980b9' : '#3498db';
+        });
+    </script>
+
+</body>
+
+</html>

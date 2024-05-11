@@ -1,0 +1,390 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Investment Regions Map</title>
+    <link rel="icon" type="image/x-icon" href="images/icon.jpg">
+    <link rel="stylesheet" href="styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <!-- Include FontAwesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    <style>
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+
+        header {
+            position: relative;
+            height: 14vh; /* Adjust the height as needed */
+            overflow: hidden;
+        }
+
+        .vision-text p {
+            font-size: 40px;
+            color: #fffffff0;
+            font-weight: bold;
+        }
+
+        #container {
+            display: flex;
+            height: 100vh;
+        }
+
+        #map {
+            flex: 1;
+        }
+
+        #sidebar {
+            width: 300px;
+            padding: 20px;
+            background-color: #f0f0f0;
+            overflow-y: auto;
+        }
+
+        h1 {
+            margin: 0 0 20px;
+            font-size: 24px;
+            color: #333;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 8px;
+            margin-bottom: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            box-sizing: border-box;
+            font-size: 16px;
+        }
+
+        .region-item {
+            cursor: pointer;
+            margin-bottom: 10px;
+            padding: 10px;
+            background-color: #fff;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            transition: background-color 0.3s ease;
+        }
+
+        .region-item:hover {
+            background-color: #e0e0e0c8;
+        }
+
+        .region-item h3 {
+            margin-top: 0;
+            color: #333;
+        }
+
+        .info-window {
+            max-width: 250px;
+        }
+
+        .info-window h2 {
+            margin: 0 0 10px;
+            font-size: 18px;
+            color: #333;
+        }
+
+        .info-window ul {
+            margin: 0;
+            padding: 0;
+            list-style-type: none;
+        }
+
+        .info-window li {
+            margin-bottom: 5px;
+        }
+
+        footer {
+            background-image: url('images/muscat_skyline.png');
+            padding: 20px;
+            color: #fff;
+            text-align: center;
+        }
+
+        .footer-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .footer-section {
+            flex: 1;
+            margin-right: 20px;
+        }
+
+        .footer-section h3 {
+            margin-bottom: 10px;
+            font-size: 18px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            font-size: 20px;
+            margin-right: 10px;
+        }
+
+        .bottom-footer {
+            margin-top: 20px;
+            font-size: 14px;
+        }
+    </style>
+</head>
+
+<body>
+<header>
+    <div class="menu">
+        <img src="images/logo1.png" alt="Your Startup Logo" class="logo">
+    </div>
+
+    <!-- Fixed Menu with Logo -->
+    <nav class="fixed-menu">
+        <div class="menu">
+            <img src="images/loggo.png" alt="Your Startup Logo" class="logo">
+        </div>
+        <ul class="nav-links">
+            <li><a href="index.html">Home</a></li>
+            <li class="submenu">
+                <a href="invest-oman.html">Invest Oman <span>&#9662;</span></a>
+                <ul class="submenu-items">
+                    <!-- New submenu items -->
+                    <li><a href="Virtual Tour.html">Explore Muscat</a></li>
+                    <li><a href="Financial Analysis Tools.html">Financial Analysis Tools</a></li>
+                </ul>
+            </li>
+            
+            <li class="submenu">
+                <a href="#">About Oman <span>&#9662;</span></a>
+                <ul class="submenu-items">
+                    <li><a href="oman-vision-2040.html">Oman Vision 2040</a></li>
+                    <li><a href="oman-overview.html">Oman Overview</a></li>
+                </ul>
+            </li>
+            <li><a href="about-mustathmer.html">Mustathmer</a></li>
+            <li><a href="contact.html" id="contact-btn">Contact</a></li>
+        </ul>
+    </nav>
+    
+</header>
+
+<div id="container">
+    <div id="map"></div>
+    <div id="sidebar">
+        <h1>Investment Regions</h1>
+        <input type="text" id="searchInput" placeholder="Search...">
+        <div id="regionList"></div>
+    </div>
+</div>
+
+<footer>
+    <div class="footer-content">
+        <div class="footer-section">
+            <h3>Contact Us</h3>
+            <p>
+                <i class="far fa-envelope"></i> Email: helpdesk@mustathmer.com<br>
+                <i class="fas fa-phone"></i> Phone: 2489 2230
+            </p>
+            <div class="social-icons">
+                <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+            </div>
+        </div>
+        <div class="footer-section">
+            <a href="https://tejarah.gov.om/" target="_blank">
+                <img src="images/tejarah1.png" alt="Ministry of Commerce and Industry">
+            </a>
+        </div>
+    </div>
+    <div class="bottom-footer">
+        <p>&copy; 2024 Mustathmer</p>
+    </div>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script>
+    function changeColor() {
+        var button = document.querySelector('.login-button');
+        button.classList.toggle('active');
+    }
+
+    // Sample data for the six wilayats of Muscat governorate
+    const muscatWilayats = [
+        { name: "Muttrah", lat: 23.6052, lng: 58.5934 },
+        { name: "Bawshar", lat: 23.5583, lng: 58.4399 },
+        { name: "Seeb", lat: 23.6684, lng: 58.1891 },
+        { name: "Al Amrat", lat: 23.6204, lng: 58.4035 },
+        { name: "Muscat", lat: 23.5859, lng: 58.4059 },
+        { name: "Qurayyat", lat: 23.2531, lng: 58.7276 }
+    ];
+
+    let map;
+    let infoWindow;
+    let regionPolygons = []; // Store polygons of each region
+
+    function initMap() {
+        // Default center coordinates for the map (Muscat, Oman)
+        const center = { lat: 23.5859, lng: 58.4059 };
+
+        // Create a new map instance
+        map = new google.maps.Map(document.getElementById("map"), {
+            zoom: 10,
+            center: center,
+        });
+
+        infoWindow = new google.maps.InfoWindow();
+
+        // Add markers for each wilayat
+        muscatWilayats.forEach((wilayat, index) => {
+            const marker = new google.maps.Marker({
+                position: { lat: wilayat.lat, lng: wilayat.lng },
+                map: map,
+                title: wilayat.name,
+            });
+
+            const content = `
+                <div class="info-window">
+                    <h2>${wilayat.name}</h2>
+                </div>
+            `;
+
+            marker.addListener("click", () => {
+                infoWindow.setContent(content);
+                infoWindow.open(map, marker);
+            });
+
+            addWilayatToList(wilayat, index);
+        });
+    }
+
+    function addWilayatToList(wilayat, index) {
+        const regionList = document.getElementById("regionList");
+        const regionItem = document.createElement("div");
+        regionItem.classList.add("region-item");
+        regionItem.innerHTML = `<h3>${wilayat.name}</h3>`;
+        regionItem.addEventListener("click", () => {
+            map.setCenter({ lat: wilayat.lat, lng: wilayat.lng });
+            map.setZoom(12);
+            infoWindow.setContent(`
+                <div class="info-window">
+                    <h2>${wilayat.name}</h2>
+                </div>
+            `);
+            infoWindow.open(map);
+            highlightRegion(wilayat);
+        });
+        regionList.appendChild(regionItem);
+    }
+
+    function highlightRegion(wilayat) {
+        // Clear existing region polygons
+        regionPolygons.forEach(polygon => polygon.setMap(null));
+        regionPolygons = [];
+
+        // Define the coordinates of the region
+        const regionCoordinates = getRegionCoordinates(wilayat.name);
+
+        // Construct the polygon
+        const regionPolygon = new google.maps.Polygon({
+            paths: regionCoordinates,
+            strokeColor: "#FF0000", // Red color for boundaries
+            strokeOpacity: 0.8,
+            strokeWeight: 2,
+            fillColor: "#FF0000", // Red color for fill
+            fillOpacity: 0.35
+        });
+
+        // Add the polygon to the map
+        regionPolygon.setMap(map);
+        regionPolygons.push(regionPolygon);
+    }
+
+    function getRegionCoordinates(regionName) {
+        // Dummy region coordinates for demonstration
+        switch (regionName) {
+            case "Muttrah":
+                return [
+                    { lat: 23.598352, lng: 58.560428 },
+                    { lat: 23.590309, lng: 58.588708 },
+                    { lat: 23.578235, lng: 58.594172 },
+                    { lat: 23.571245, lng: 58.564153 }
+                ];
+            case "Bawshar":
+                return [
+                    { lat: 23.557815, lng: 58.458976 },
+                    { lat: 23.553180, lng: 58.481170 },
+                    { lat: 23.545958, lng: 58.478703 },
+                    { lat: 23.548349, lng: 58.454525 }
+                ];
+            case "Seeb":
+                return [
+                    { lat: 23.676041, lng: 58.201481 },
+                    { lat: 23.665201, lng: 58.238437 },
+                    { lat: 23.649392, lng: 58.230511 },
+                    { lat: 23.651893, lng: 58.193367 }
+                ];
+            case "Al Amrat":
+                return [
+                    { lat: 23.632682, lng: 58.415121 },
+                    { lat: 23.619347, lng: 58.437029 },
+                    { lat: 23.605894, lng: 58.418860 },
+                    { lat: 23.621078, lng: 58.397631 }
+                ];
+            case "Muscat":
+                return [
+                    { lat: 23.584518, lng: 58.407878 },
+                    { lat: 23.579170, lng: 58.417868 },
+                    { lat: 23.577805, lng: 58.424207 },
+                    { lat: 23.577443, lng: 58.428767 },
+                    { lat: 23.576062, lng: 58.435990 },
+                    { lat: 23.566037, lng: 58.434071 },
+                    { lat: 23.563504, lng: 58.432290 },
+                    { lat: 23.562044, lng: 58.428872 },
+                    { lat: 23.558299, lng: 58.420668 },
+                    { lat: 23.559679, lng: 58.412315 }
+                ];
+            case "Qurayyat":
+                return [
+                    { lat: 23.257545, lng: 58.742313 },
+                    { lat: 23.254915, lng: 58.717827 },
+                    { lat: 23.252657, lng: 58.694006 },
+                    { lat: 23.258028, lng: 58.689442 },
+                    { lat: 23.258690, lng: 58.697177 },
+                    { lat: 23.258240, lng: 58.705128 },
+                    { lat: 23.258946, lng: 58.709592 }
+                ];
+            default:
+                return [];
+        }
+    }
+
+    function filterWilayats() {
+        const searchInput = document.getElementById("searchInput");
+        const filterValue = searchInput.value.toLowerCase();
+        const regionList = document.getElementById("regionList");
+        const regionItems = regionList.getElementsByClassName("region-item");
+
+        for (let i = 0; i < regionItems.length; i++) {
+            const regionName = regionItems[i].textContent.toLowerCase();
+            if (regionName.indexOf(filterValue) > -1) {
+                regionItems[i].style.display = "";
+            } else {
+                regionItems[i].style.display = "none";
+            }
+        }
+    }
+
+    document.getElementById("searchInput").addEventListener("keyup", filterWilayats);
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBMr13VgjHa51I-dH7iZjy_BZfnpspasAw&callback=initMap" async defer></script>
+</body>
+</html>

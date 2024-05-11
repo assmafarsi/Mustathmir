@@ -1,0 +1,514 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Mustathmer | Oman Overview</title>
+    <link rel="icon" type="image/x-icon" href="images/icon.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins">
+    <!-- Include FontAwesome library -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css"
+        integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA=="
+        crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+    <style>
+        /* Add specific styles for this page if needed */
+        body {
+            font-family: 'Poppins', sans-serif;
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            background-color: #ffffff;
+            color: #2c3e50;
+        }
+        header {
+        position: relative;
+        height: 70vh; /* Adjust the height as needed */
+        overflow: hidden;
+        }
+        .header-image {
+        width: 100%;
+        height: 100%;
+        object-fit: cover; /* Ensure the image covers the header */
+        position: absolute;
+        top: 0;
+        left: 0;
+        z-index: -1; /* Ensure the image is behind other header content */
+        }
+
+        .vision-text p {
+        font-size: 40px;
+        color: #fffffff0;
+        font-weight: bold;
+        }
+
+        section#oman-overview {
+            padding: 40px;
+            text-align: center;
+            margin-bottom: 40px;
+            background-color: rgb(241, 244, 248);
+            border-radius: 10px;
+        }
+
+        section#oman-overview h2 {
+            color: #49555e;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+        
+        section#trade-agreements {
+           padding: 160px;
+           text-align: center;
+           background-image: url('images/invest.png'); /* Add your background image */
+           background-size: cover;
+           background-position: center;
+           color: #ffffff; /* White text color */
+           border-radius: 10px;
+        }
+
+        section#trade-agreements h2 {
+            color: #ffffff; /* White header color */
+            font-weight: bold;
+            font-size: 2.5rem; /* Adjust the font size as needed */
+        }
+        section#trade-agreements p {
+            color: #ffffff; /* White text color */
+            font-size: 1.2rem; /* Adjust the font size as needed */
+            margin-bottom: 20px; /* Add some margin to separate it from the button */
+        }
+
+
+        .info-boxes {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 20px;
+            justify-content: center;
+        }
+        
+        .theme-box {
+            flex: 0 1 calc(33.333% - 20px);
+            padding: 20px;
+            color: #ecf0f1;
+            border-radius: 8px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+
+        .info-box {
+            flex: 0 1 calc(33.333% - 20px);
+            padding: 20px;
+            color: #27778d;
+            border-radius: 10px;
+            text-align: center;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            background-color: rgb(255, 255, 255);
+            margin-bottom: 20px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .info-box:hover {
+            background-color: #7db5c9f2;
+            color: rgb(250, 251, 251);
+        }
+
+        .icon {
+            font-size: 3rem;
+            margin-bottom: 10px;
+            color: #3d5b6e; /* Icon color */
+        }
+    
+        .text-content {
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .number-box,
+        .content-box,
+        .symbol-box {
+            padding: 0 10rem;
+            border-radius: 10px;
+            background-color: #ffffff;
+            color: #3498db;
+            margin-bottom: 20px;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        .download-button {
+            display: inline-block;
+            padding: 10px 20px;
+            margin-top: 20px;
+            font-size: 1rem;
+            color: #fff;
+            background-color: #3194a3; /* Teal button color */
+            text-decoration: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+
+        .download-button:hover {
+            background-color: rgb(150, 173, 177); /* Dark teal on hover */
+        }
+
+        
+        section#trade-agreements {
+            padding: 100px;
+            text-align: center;
+            background-image: url('images/invest.png'); /* Add your background image */
+            background-size: cover;
+            background-position: center;
+            color: #dee2e6; /* Light gray text color */
+            border-radius: 10px;
+        }
+
+        section#trade-agreements h2,
+        section#trade-agreements p {
+            color: #ffffff; /* White text color */
+            
+        }
+
+        .accordion {
+            background-color: #ffffff;
+            color: #27778d; /* Text color */
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            position: relative;
+        }
+
+        .accordion:before {
+            content: '\02795'; /* Unicode character for 'plus' sign */
+            font-size: 24px;
+            color: #27778d;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            transition: transform 0.4s;
+        }
+
+        .accordion.active:before {
+            content: '\02796'; /* Unicode character for 'minus' sign */
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+        .panel {
+            padding: 0 18px;
+            display: none;
+            overflow: hidden;
+            background-color: #f1f1f1;
+            border-radius: 0 0 8px 8px;
+        }
+
+        .active {
+            display: block;
+        }
+
+        /* Additional styles for LEGISLATION section */
+
+        section#legislation {
+            padding: 40px;
+            background-color: #f0f0f0;
+            border-radius: 10px;
+            margin-top: 40px;
+            text-align: center;
+            
+        }
+
+        section#legislation h2 {
+            color: #3d5b6e; /* Dark teal text color */
+            text-align: center;
+            font-weight: bold;
+            margin-bottom: 30px;
+        }
+
+        .accordion-legislation {
+            background-color: #ffffff;
+            color: #3d5b6e; /* Dark teal text color */
+            cursor: pointer;
+            padding: 18px;
+            width: 100%;
+            text-align: left;
+            border: none;
+            outline: none;
+            transition: 0.4s;
+            border-radius: 8px;
+            margin-bottom: 10px;
+            font-weight: bold;
+            font-size: 20px;
+            position: relative;
+            
+        }
+
+        .accordion-legislation:before {
+            content: '\02795'; /* Unicode character for 'plus' sign */
+            font-size: 24px;
+            color: #3d5b6e;
+            position: absolute;
+            top: 50%;
+            right: 20px;
+            transform: translateY(-50%);
+            transition: transform 0.4s;
+            
+        }
+
+        .accordion-legislation.active:before {
+            content: '\02796'; /* Unicode character for 'minus' sign */
+            transform: translateY(-50%) rotate(45deg);
+        }
+
+       
+
+    </style>
+</head>
+
+<body>
+    <header>
+            <img src="images/overview.jpg" alt="Your Image" class="header-image">
+            <div class="menu">
+                <img src="images/logo1.png" alt="Your Startup Logo" class="logo">
+                <div class="vision-section">
+                    <div class="vision-text">
+                        <p>Oman Overview</p>
+                    </div>
+            </div>
+        
+        <div class="menu">
+            <img src="images/logo1.png" alt="Your Startup Logo" class="logo">
+        </div>
+        
+        <!-- Fixed Menu with Logo -->
+        <nav class="fixed-menu">
+            <div class="menu">
+                <img src="images/loggo.png" alt="Your Startup Logo" class="logo">
+            </div>
+            <ul class="nav-links">
+                <li><a href="index.html">Home</a></li>
+                <li class="submenu">
+                    <a href="invest-oman.html">Invest Oman <span>&#9662;</span></a>
+                    <ul class="submenu-items">
+                        <!-- New submenu items -->
+                        <li><a href="Virtual Tour.html">Explore Muscat</a></li>
+                        <li><a href="Financial Analysis Tools.html">Financial Analysis Tools</a></li>
+                    </ul>
+                </li>
+                
+                <li class="submenu">
+                    <a href="#">About Oman <span>&#9662;</span></a>
+                    <ul class="submenu-items">
+                        <li><a href="oman-vision-2040.html">Oman Vision 2040</a></li>
+                        <li><a href="oman-overview.html">Oman Overview</a></li>
+                    </ul>
+                </li>
+                <li><a href="about-mustathmer.html">Mustathmer</a></li>
+                <li><a href="contact.html" id="contact-btn">Contact</a></li>
+            </ul>
+        </nav>
+        
+        
+            <div class="login-buttons">
+                <button class="signup-button" onclick="window.location.href='invest-oman.html'">
+                    <i class="fas fa-user-plus"></i>
+                    <span class="button-tooltip">Sign up</span>
+                </button>
+                <button class="contact-button" onclick="window.location.href='feedback.html'">
+                    <i class="fas fa-envelope"></i>
+                    <span class="button-tooltip">feedback</span>
+                </button>
+
+    </header>
+
+    <section id="oman-overview">
+        <h2>Oman Overview</h2>
+        <div class="info-boxes">
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-map-marker-alt"></i></div>
+                <div class="text-content">
+                    <h3>Area</h3>
+                    <p>309,501 km²</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-building"></i></div>
+                <div class="text-content">
+                    <h3>Capital</h3>
+                    <p>Muscat</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="far fa-clock"></i></div>
+                <div class="text-content">
+                    <h3>Local Time</h3>
+                    <p>GMT +4</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-language"></i></div>
+                <div class="text-content">
+                    <h3>Official language</h3>
+                    <p>Arabic</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-users"></i></div>
+                <div class="text-content">
+                    <h3>Population</h3>
+                    <p>4.7mn</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-money-bill-alt"></i></div>
+                <div class="text-content">
+                    <h3>Currency</h3>
+                    <p>Omani Rial<br>1 US$ = 0.386 baisas (fixed) RO1 = US$2.6</p>
+                </div>
+            </div>
+                <div class="info-box">
+                <div class="icon"><i class="fas fa-graduation-cap"></i></div>
+                <div class="text-content">
+                    <h3>Education</h3>
+                    <p>40+ higher education institutes<br>32,000+ graduates annually</p>
+                </div>
+            </div>
+            <div class="info-box">
+                <div class="icon"><i class="fas fa-satellite-dish"></i></div>
+                <div class="text-content">
+                    <h3>Telecommunications</h3>
+                    <p>95.2% internet penetration<br>95%+ of population access 4G<br>5G network launched December</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="trade-agreements">
+        <h2>Trade Agreements</h2>
+        <p>More than 105 international agreements exist between Oman and other nations.<br>
+             To prevent double taxation and enable collaboration between Oman and foreign tax <br>
+             authorities in the enforcement of their respective tax laws, Oman has 34 effective double<br>
+              taxation treaties (comprehensive and restricted) with other nations and territories.</p>
+        <a class="download-button" href="https://omanportal.gov.om/wps/wcm/connect/2a0ef62d-5dc9-4f41-8a1a-2d857bc22dd2/%D8%AD%D9%88%D8%A7%D9%81%D8%B2+%D8%A7%D9%84%D8%A7%D8%B3%D8%AA%D8%AB%D9%85%D8%A7%D8%B1+%D9%81%D9%8A+%D8%B3%D9%84%D8%B7%D9%86%D8%A9+%D8%B9%D9%85%D8%A7%D9%86.pdf?MOD=AJPERES" download>Download Trade Agreements</a>
+    </section>
+
+    <section id="legislation">
+        <h2>Legislation</h2>
+        <button class="accordion">Foreign Capital Investment Law</button>
+        <div class="panel">
+            <p>The investor can obtain 100% ownership. The role of the Investment Services Centre (ISC) in the Ministry:
+                The ISC aims to develop the business environment and facilitate the establishment of various types of
+                investment projects. It is responsible for registering foreign investors and simplifying procedures for
+                obtaining licenses, approvals and permits for international investors.</p>
+        </div>
+
+        <button class="accordion">Bankruptcy Law</button>
+        <div class="panel">
+            <p>The new Bankruptcy Law covers the mechanisms, controls and procedures of restructuring, helping the debtor
+                merchant exit from the state of financial and administrative distress to pay off debts in line with a
+                restructuring plan. The law also makes clear the way creditors obtain their rights.</p>
+        </div>
+
+        <button class="accordion">Commercial Partnership Law</button>
+        <div class="panel">
+            <p>The Commercial Partnership Law seeks to simplify procedures and encourage local and foreign investment. It
+                applies to commercial companies whose headquarters are in Oman or which carry out their main activity in
+                the Sultanate. The law includes articles that keep pace with the current economic situation and regulate
+                the establishment and work of various types of companies by simplifying procedures for investors through
+                creating the appropriate environment, providing the protection for investors and the commercial companies
+                in accordance with the relevant standards and procedures. In order to create a framework for greater
+                investment flexibility, the law allows for the first time the establishment of a one-person company.</p>
+        </div>
+
+        <button class="accordion">Privatization Law</button>
+        <div class="panel">
+            <p>The Privatization Law is designed to implement governmental policies for the transfer of ownership or the
+                management of a public project (governmental facilities and buildings) or state-owned companies, in whole
+                or in part, to a person in order to: Promote investment and attract specialized expertise. Raise the
+                efficiency of resource operation and develop the quality of services. Development of the capital market.</p>
+        </div>
+
+        <button class="accordion">Petroleum Income Tax</button>
+        <div class="panel">
+            <p>Special provisions are applicable to the taxation of income derived from the sale of petroleum. The tax rate
+                specified for such companies is 55%. However, the tax rates are applied on income as determined by the
+                individual Exploration and Production Sharing Agreement entered into between the government of Oman and the
+                company engaged in the sale of petroleum. Under these Agreements, the government pays the company’s share
+                of income tax from amounts withheld from the government’s share of production. Consequently, the income tax
+                is not borne by the company.</p>
+        </div>
+
+        <button class="accordion">Income Tax</button>
+        <div class="panel">
+            <p>There are no regional or local income taxes in Oman.</p>
+        </div>
+    </section>
+
+    <footer style="background-image: url('images/muscat_skyline.png');">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Contact Us</h3>
+                <p>
+                    <i class="far fa-envelope"></i> Email: helpdesk@mustathmer.com<br>
+                    <i class="fas fa-phone"></i> Phone: 2489 2230
+                </p>
+                <div class="social-icons">
+                    <a href="#" target="_blank" title="Facebook"><i class="fab fa-facebook"></i></a>
+                    <a href="#" target="_blank" title="Twitter"><i class="fab fa-twitter"></i></a>
+                    <a href="#" target="_blank" title="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                </div>
+            </div>
+            <div class="footer-section">
+                <a href="https://tejarah.gov.om/" target="_blank">
+                    <img src="images/tejarah1.png" alt="Ministry of Commerce and Industry">
+                </a>
+            </div>
+        </div>
+        <div class="bottom-footer">
+            <p>&copy; 2024 Mustathmer</p>
+        </div>
+    </footer>
+
+    <script>
+        function changeColor(element) {
+            // Toggle background color and text color on click
+            element.style.backgroundColor = element.style.backgroundColor === '#34495e' ? '#2980b9' : '#34495e';
+            element.style.color = element.style.color === '#3498db' ? 'white' : '#3498db';
+        }
+
+        var acc = document.getElementsByClassName("accordion");
+        var i;
+
+        for (i = 0; i < acc.length; i++) {
+            acc[i].addEventListener("click", function () {
+                this.classList.toggle("active");
+                var panel = this.nextElementSibling;
+                if (panel.style.display === "block") {
+                    panel.style.display = "none";
+                } else {
+                    panel.style.display = "block";
+                }
+            });
+        }
+    </script>
+
+</body>
+
+</html>
